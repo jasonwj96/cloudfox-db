@@ -2,12 +2,12 @@ DROP TABLE IF EXISTS cfx_models;
 
 CREATE TABLE cfx_models
 (
-    id              uuid primary key default gen_random_uuid() not null,
-    userId          uuid references cfx_accounts (id)          not null,
-    name            varchar(50)                                not null,
-    generatedTokens int              default 0                 not null,
-    creationDate    timestamptz      default NOW()             not null,
-    fileName        varchar(50)                                not null,
-    active          bool             default false             not null,
-    lastModified    timestamptz      default NOW()             not null
+    id               UUID PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+    user_id          UUID REFERENCES cfx_accounts (id)          NOT NULL,
+    name             TEXT                                       NOT NULL,
+    generated_tokens INT              DEFAULT 0                 NOT NULL,
+    creation_date    TIMESTAMPTZ      DEFAULT NOW()             NOT NULL,
+    file_name        VARCHAR(255)                               NOT NULL,
+    active           BOOL             default false             NOT NULL,
+    last_modified    TIMESTAMPTZ      default NOW()             NOT NULL
 );
