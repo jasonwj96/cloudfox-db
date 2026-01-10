@@ -16,6 +16,7 @@ CREATE TABLE cfx_accounts
     active             bool             default false
 );
 
+CREATE UNIQUE INDEX ux_cfx_accounts_username
+    ON cfx_accounts (username);
 
-Select *
-from cfx_accounts;
+select * from cfx_accounts;
