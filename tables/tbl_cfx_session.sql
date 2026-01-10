@@ -33,6 +33,5 @@ CREATE INDEX idx_cfx_session_expiration
     ON cfx_session (expiration_date);
 
 
-SELECT expiration_date
+SELECT *
 from cfx_session
-where session_token = '4401ebbc-2046-41ef-a6e1-1ca946228ac6';
