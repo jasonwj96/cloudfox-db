@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS cfx_session CASCADE;
 CREATE TABLE cfx_session
 (
     id               uuid PRIMARY KEY     DEFAULT gen_random_uuid(),
-    account_id       uuid        NOT NULL
+    account_id       uuid  UNIQUE      NOT NULL
         REFERENCES cfx_accounts (id)
             ON DELETE CASCADE,
     session_token    uuid,
@@ -33,5 +33,4 @@ CREATE INDEX idx_cfx_session_expiration
     ON cfx_session (expiration_date);
 
 
-SELECT *
-from cfx_session
+SELECT * from cfx_session

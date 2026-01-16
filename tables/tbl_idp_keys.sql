@@ -8,7 +8,7 @@ CREATE TABLE cfx_idp_keys
     request_hash    TEXT        NOT NULL,
     response_status INTEGER     NOT NULL,
     response_body   JSONB       NOT NULL,
-    created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+    created_at      TIMESTAMPTZ NOT NULL,
     expires_at      TIMESTAMPTZ NOT NULL,
     UNIQUE (idempotency_key, operation)
 );
