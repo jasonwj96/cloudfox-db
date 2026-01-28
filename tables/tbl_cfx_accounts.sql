@@ -16,7 +16,8 @@ CREATE TABLE cfx_accounts
     mfa_type           varchar(30)        null,
     creation_date      timestamptz      default now(),
     phone_number       varchar(20)        null,
-    active             bool             default false
+    active             bool             default false,
+    pricing_plan       uuid references cfx_pricing_plans(id)
 );
 
 CREATE UNIQUE INDEX ux_cfx_accounts_username
