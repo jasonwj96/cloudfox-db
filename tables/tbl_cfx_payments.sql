@@ -6,9 +6,11 @@ CREATE TABLE cfx_payments
     public_id                UUID                              NOT NULL DEFAULT gen_random_uuid(),
     account_id               UUID REFERENCES cfx_accounts (id) NOT NULL,
     amount_lowest_unit       BIGINT                            NOT NULL CHECK (amount_lowest_unit > 0),
-    currency                 UUID                        NOT NULL REFERENCES cfx_currency(id),
+    currency                 UUID                              NOT NULL REFERENCES cfx_currency(id),
     status                   TEXT                              NOT NULL CHECK (status IN ('PENDING','SUCCEEDED','FAILED')),
-    stripe_payment_intent_id TEXT UNIQUE,
+    provider                 TEXT NOT NULL,
+    idempotent_key_id        TEXT UNIQUE,
+    provider_payment_id      TEXT UNIQUE,
     creation_date            TIMESTAMPTZ                       NOT NULL DEFAULT now(),
 
     CONSTRAINT fk_payments_account

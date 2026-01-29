@@ -15,3 +15,5 @@ CREATE TABLE cfx_idp_keys
 
 CREATE INDEX idx_key_lookup
     ON cfx_idp_keys (idempotency_key, operation);
+
+select * from cfx_idp_keys;

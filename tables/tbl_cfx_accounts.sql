@@ -17,10 +17,11 @@ CREATE TABLE cfx_accounts
     creation_date      timestamptz      default now(),
     phone_number       varchar(20)        null,
     active             bool             default false,
-    pricing_plan       uuid references cfx_pricing_plans(id)
+    pricing_plan       uuid references cfx_pricing_plans(id),
+    token_balance      bigint default  0
 );
 
 CREATE UNIQUE INDEX ux_cfx_accounts_username
     ON cfx_accounts (username);
 
-select * from cfx_accounts;
+select id, username, token_balance from cfx_accounts;
