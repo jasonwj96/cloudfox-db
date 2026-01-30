@@ -24,4 +24,4 @@ CREATE TABLE cfx_accounts
 CREATE UNIQUE INDEX ux_cfx_accounts_username
     ON cfx_accounts (username);
 
-select id, username, token_balance from cfx_accounts;
+select * from cfx_accounts;

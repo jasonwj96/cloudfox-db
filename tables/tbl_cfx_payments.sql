@@ -5,7 +5,7 @@ CREATE TABLE cfx_payments
     id                       BIGSERIAL PRIMARY KEY,
     public_id                UUID                              NOT NULL DEFAULT gen_random_uuid(),
     account_id               UUID REFERENCES cfx_accounts (id) NOT NULL,
-    amount_lowest_unit       BIGINT                            NOT NULL CHECK (amount_lowest_unit > 0),
+    amount_lowest_unit       BIGINT                            NOT NULL CHECK (amount_lowest_unit >= 0),
     currency                 UUID                              NOT NULL REFERENCES cfx_currency(id),
     status                   TEXT                              NOT NULL CHECK (status IN ('PENDING','SUCCEEDED','FAILED')),
     provider                 TEXT NOT NULL,
