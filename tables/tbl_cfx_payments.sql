@@ -12,6 +12,7 @@ CREATE TABLE cfx_payments
     idempotent_key_id        TEXT UNIQUE,
     provider_payment_id      TEXT UNIQUE,
     creation_date            TIMESTAMPTZ                       NOT NULL DEFAULT now(),
+    token_amount             BIGINT NOT NULL,
 
     CONSTRAINT fk_payments_account
         FOREIGN KEY (account_id)
